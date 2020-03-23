@@ -2,18 +2,18 @@
 
 Docker needs to be installed in the machine.
 
-_docker-compose up_should start up the angular and Spring boot applications.
+"docker-compose up" should start up the angular and Spring boot applications.
 
 And opening the url [http://localhost](http://localhost) (using docker-desktop) or 192.168. 99.100 (using docker-toolbox).
 
-If any issue arises due to port. Changing the port in docker-compose should be sufficient.
+If any issue arises due to port. Changing the port in docker-compose.yml (line 6) should be sufficient.
 
 # Components
 
 ![alt text](https://raw.githubusercontent.com/srivathsarao/sample-angular-spring-boot-docker/master/architecture.png)
 
 
-**transaction-ui** -\&gt; Contains the Angular 8 code. Bootstrap, NGRX, RxJs, Ag-grid.
+**transaction-ui** Contains the Angular 8 code. Bootstrap, NGRX, RxJs, Ag-grid.
 
 Ag-grid is used to both generate the table in the UI and to export the contents as csv.
 
@@ -33,6 +33,7 @@ At the startup, the **Spring batch** reads the data line by line and inserts in 
 
 The reason for using spring batch is because, it helps in loading large dataset and it can be integrated with quarts or any other frameworks to run at certain time.
 
+**Lombok** is used to make the model classes and logging simplified.
 
 # Future improvements
 
@@ -43,3 +44,7 @@ Add **JenkinsFile** and test in Jenkins.
 Needs to do **server side generation of CSV** files for high datasets.
 
 Feed the data using **Kafka** to spring boot and integrate it with **Spring cloud streams**.
+
+If more services are added, API gatway like zuul is required and code can be movied to **Kubernetes**.
+
+**Authentication and authorization** **static scanning and dynamic scanning** can be added for application security and make it follow **OWASP Standards**.
