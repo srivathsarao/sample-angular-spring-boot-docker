@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,6 +31,9 @@ public class TransactionServiceTest {
         String dateString = "20100820";
         DateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
         Date date = formatter.parse(dateString);
+
+        transactionRepository.deleteAll();
+        transactionRepository.save(new Transaction(null, null, null, BigDecimal.ONE, date));
 
         List<Transaction> data = transactionService.getTransactions(date);
         assertEquals(1, data.size());
