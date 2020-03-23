@@ -66,11 +66,13 @@ class TransactionServiceApplicationTests {
             Date transactionDate = new Timestamp(dateFormat.parse(line.substring(121, 129).trim()).getTime());
             transactionList.add(new Transaction(fileLength++, clientInformation, productInformation, quantityShort.subtract(quantityLong).abs(), transactionDate));
         }
+        
         List<Transaction> filteredItems = transactionRepository.findAll().stream().filter(item -> {
             return transactionList.stream().filter(directObject -> directObject.getClientInformation().equals(item.getClientInformation()) &&
                     directObject.getProductInformation().equals(item.getProductInformation()) &&
                     directObject.getTransactionDate().equals(item.getTransactionDate())).findFirst().isPresent();
         }).collect(Collectors.toList());
+
         assertEquals(transactionList.size(), transactionRepository.findAll().size());
         assertEquals(filteredItems.size(), transactionList.size());
     }
