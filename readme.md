@@ -47,4 +47,4 @@ Feed the data using **Kafka** to spring boot and integrate it with **Spring clou
 
 If more services are added, API gatway like zuul is required and code can be movied to **Kubernetes**.
 
-**Authentication and authorization** **static scanning and dynamic scanning** can be added for application security and make it follow **OWASP Standards**.
+**Authentication and authorization can be added using OAUTH2** **static scanning and dynamic scanning** can be added for application security and make it follow **OWASP Standards**.
