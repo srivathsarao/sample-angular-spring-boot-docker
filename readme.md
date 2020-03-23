@@ -10,6 +10,9 @@ If any issue arises due to port. Changing the port in docker-compose should be s
 
 # Components
 
+![alt text](https://raw.githubusercontent.com/srivathsarao/sample-angular-spring-boot-docker/master/architecture.png)
+
+
 **transaction-ui** -\&gt; Contains the Angular 8 code. Bootstrap, NGRX, RxJs, Ag-grid.
 
 Ag-grid is used to both generate the table in the UI and to export the contents as csv.
@@ -29,6 +32,7 @@ It connects to embedded h2 database. H2 console is also enabled.
 At the startup, the **Spring batch** reads the data line by line and inserts in the database.
 
 The reason for using spring batch is because, it helps in loading large dataset and it can be integrated with quarts or any other frameworks to run at certain time.
+
 
 # Future improvements
 
