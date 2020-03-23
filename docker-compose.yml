@@ -1,0 +1,10 @@
+version: '2'
+services:
+  transaction-ui:
+    build: transaction-ui/.
+    ports:
+      - "80:80"
+    depends_on:
+      - transaction-service
+  transaction-service:
+    build: transaction-service/.

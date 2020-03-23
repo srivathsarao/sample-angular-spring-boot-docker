@@ -1,0 +1,7 @@
+# file: ~/.gitignore_global
+.DS_Store
+.idea
+*/target/**
+*/dist/**
+*/node_modules/**
+*.mvn

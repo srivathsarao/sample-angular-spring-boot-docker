@@ -1,0 +1,22 @@
+<div class="row px-md-5">
+  <div class="col-xs-12 col-12 col-md-4 form-group">
+    <input type="text"
+           class="form-control"
+           #dp="bsDatepicker"
+           bsDatepicker
+           [bsConfig]="{ adaptivePosition: true }"
+           [bsValue]="selectedDate"
+           (bsValueChange)="onDateChanged($event)">
+  </div>
+  <div class="col-xs-12 col-12 col-md-3 form-group">
+    <button class="btn btn-primary" type="button" (click)="downloadCsv()">Download CSV</button>
+  </div>
+  <ag-grid-angular
+    style="width: 100%; height: 500px;"
+    class="ag-theme-alpine"
+    [gridOptions]="gridOptions"
+    [rowData]="transactions"
+    [columnDefs]="columnDefs"
+  >
+  </ag-grid-angular>
+</div>
